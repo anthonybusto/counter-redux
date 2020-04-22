@@ -3,16 +3,30 @@ import { createStore } from "redux";
 import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
 import CounterApp from "./src/CounterApp";
 import { Provider } from "react-redux";
+// import {CounterAction} from "./src/CounterApp/CounterAction";
+import { CounterAction } from './src/CounterApp'
+
+// import CounterAction.INCREMENT from "./src/CounterApp";
 
 const intitalState = {
-  counter: 0,
+  counter: 5,
 };
 
-const reducer = (state = intitalState, action: any) => {
-  switch (action) {
-    case "INCREMENT":
+// const reducer = (state = intitalState, action: CounterAction) => {
+//   switch (action.type) {
+//     case CounterAction.INCREMENT:
+//       return { counter: state.counter + 1 };
+//     case "DECREMENT":
+//       return { counter: state.counter - 1 };
+//   }
+//   return state;
+// };
+
+const reducer = (state = intitalState, action: CounterAction) => {
+  switch (action.type) {
+    case CounterAction.INCREMENT:
       return { counter: state.counter + 1 };
-    case "DECREMENT":
+      case CounterAction.DECREMENT:
       return { counter: state.counter - 1 };
   }
   return state;
